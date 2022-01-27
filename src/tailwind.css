@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply scroll-smooth;
+    @apply antialiased tracking-tight;
+    @apply accent-primary-500 selection:bg-primary-400;
+  }
+
+  :focus {
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 focus:ring-opacity-60;
+  }
+}
+
+@layer components {
+  #app {
+    @apply flex flex-col items-start w-3/4 md:w-2/3 lg:w-1/2 max-w-prose mx-auto my-32;
+  }
+
+  .external-link {
+    @apply underline text-black hover:text-primary-500 underline-offset-1;
+  }
+}
