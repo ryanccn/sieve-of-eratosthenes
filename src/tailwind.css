@@ -6,7 +6,8 @@
   body {
     @apply scroll-smooth;
     @apply antialiased tracking-tight;
-    @apply accent-primary-500 selection:bg-primary-400;
+    @apply accent-primary-500;
+    @apply selection:bg-primary-400 selection:text-white;
   }
 
   :focus {
