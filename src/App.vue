@@ -76,7 +76,7 @@ const start = () => {
 
   const listener = (ev: MessageEvent<WorkerMessageData>) => {
     switch (ev.data.type) {
-      case 'eliminate': {
+      case 'eliminate':
         if (
           elimNums.value.indexOf(ev.data.data) === -1 &&
           eliminationQueue.value.indexOf(ev.data.data) === -1
@@ -84,15 +84,15 @@ const start = () => {
           console.log('added', ev.data.data, 'to elimination queue');
 
         eliminationQueue.value.push(ev.data.data);
-      }
+        break;
 
-      case 'error': {
+      case 'error':
         console.error('error occurred in web worker', ev.data.data);
 
         alert(`Error occurred in Web Worker: ${ev.data.data}`);
-      }
+        break;
 
-      case 'done': {
+      case 'done':
         /** The ID of the timer that's waiting to clear eliminationInterval */
         const clearIntervalInterval = setInterval(() => {
           console.log(
@@ -121,11 +121,10 @@ const start = () => {
         }, 500);
 
         // status.value = Status.DONE;
-      }
+        break;
 
-      default: {
+      default:
         console.warn('unknown message received from worker', ev);
-      }
     }
   };
 
