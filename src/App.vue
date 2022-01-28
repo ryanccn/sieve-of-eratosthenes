@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import SieveWorker from './worker?worker';
 
 type WorkerMessageData =
@@ -37,6 +37,14 @@ const enum Status {
 
 /** The status of the web app */
 const status = ref<Status>(Status.IDLE);
+
+/** Whether or not to disable the controls
+ *
+ * (Either the Worker is not initialized, or it is running)
+ */
+const disableControls = computed(() => {
+  return !worker.value || status.value === Status.IN_PROGRESS;
+});
 
 onMounted(() => {
   workersSupported.value = 'Worker' in window;
@@ -167,7 +175,7 @@ const start = () => {
         type="number"
         v-model="n"
         class="px-4 py-2 bg-gray-50 focus:bg-gray-100 rounded-lg disabled:opacity-75"
-        :disabled="!workersSupported || status === Status.IN_PROGRESS"
+        :disabled="disableControls"
       />
     </label>
     <label class="flex space-x-4 items-center mb-4">
@@ -179,14 +187,14 @@ const start = () => {
         step="50"
         v-model="interval"
         class="px-4 py-2 bg-gray-50 focus:bg-gray-100 rounded-lg disabled:opacity-75"
-        :disabled="!workersSupported || status === Status.IN_PROGRESS"
+        :disabled="disableControls"
       />
     </label>
 
     <button
       @click="start"
       class="inline-block px-4 py-2 mb-10 font-semibold bg-primary-500 hover:bg-primary-400 text-white transition-colors rounded-lg disabled:opacity-75"
-      :disabled="!workersSupported || status === Status.IN_PROGRESS"
+      :disabled="disableControls"
     >
       Start
     </button>
