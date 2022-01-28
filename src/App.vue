@@ -155,7 +155,7 @@ const start = () => {
         class="external-link"
         target="_blank"
         rel="noopener noreferrer"
-        href="https://github.com/ryanccn/sieve-of-eratothenes"
+        href="https://github.com/ryanccn/sieve-of-eratosthenes"
       >
         GitHub
       </a>
