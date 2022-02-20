@@ -8,6 +8,7 @@
     @apply antialiased tracking-tight;
     @apply accent-primary-500;
     @apply selection:bg-primary-400 selection:text-white;
+    @apply bg-white text-black dark:bg-black dark:text-white;
   }
 
   :focus {
@@ -21,6 +22,6 @@
   }
 
   .external-link {
-    @apply underline text-black hover:text-primary-500 underline-offset-1;
+    @apply underline text-black dark:text-white hover:text-primary-500 underline-offset-1;
   }
 }

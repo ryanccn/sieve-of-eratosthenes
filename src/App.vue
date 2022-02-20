@@ -174,7 +174,7 @@ const start = () => {
       <input
         type="number"
         v-model="n"
-        class="px-4 py-2 bg-gray-50 focus:bg-gray-100 rounded-lg disabled:opacity-75"
+        class="px-4 py-2 bg-zinc-50 focus:bg-zinc-100 dark:bg-zinc-900 dark:focus:bg-zinc-800 rounded-lg disabled:opacity-75"
         :disabled="disableControls"
       />
     </label>
@@ -186,7 +186,7 @@ const start = () => {
         max="1000"
         step="50"
         v-model="interval"
-        class="px-4 py-2 bg-gray-50 focus:bg-gray-100 rounded-lg disabled:opacity-75"
+        class="px-4 py-2 bg-zinc-50 focus:bg-zinc-100 rounded-lg disabled:opacity-75"
         :disabled="disableControls"
       />
     </label>
